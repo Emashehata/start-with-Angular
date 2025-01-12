@@ -1,0 +1,15 @@
+.poro-cards .inner .layer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(28, 184, 152,.8);
+  transition: opacity .3s;
+}
+.poro-cards .inner :hover.layer{
+    opacity: 1 !important;
+}
+.modal{
+  background-color: rgba(28, 184, 152,.3);
+}

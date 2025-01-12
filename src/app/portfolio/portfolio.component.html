@@ -1,0 +1,38 @@
+<section class="p-5 mt-5" >
+  <div class="porto-header mt-5">
+    <h1 class="text-uppercase text-color text-center">portfolio component</h1>
+  </div>
+  <div class="secion-icon position-relative m-auto mt-3"><span><i class="text-color fa-solid fa-star"></i></span></div>
+
+  <div class="poro-cards mt-3">
+    <div class="container">
+      <div class="row gy-4">
+        @for (item of cards; track $index) {
+          <div class="col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onImageClick($index)">
+            <div class="inner position-relative">
+              <img [src]="item" class="w-100 rounded-2" alt="card-img">
+              <div class="layer rounded-2 d-flex justify-content-center align-items-center opacity-0">
+                <i class="text-white display-5 fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content position-relative">
+          <img  [src]="getSelectedImage()" class="w-100 rounded-2" alt="Selected Image" />
+          <div class="layer position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center justify-content-between p-4 text-white fs-3">
+            <i class="fa-solid fa-angle-left" (click)="prevImage()"></i>
+            <i class="fa-solid fa-angle-right" (click)="nextImage()"></i>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

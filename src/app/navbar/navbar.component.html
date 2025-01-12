@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg main-bg-color navbar-dark fixed-top p-4" [class]="{
+  'pt-2':navChange,
+  'pb-2':navChange,
+}">
+  <div class="container">
+    <a class="navbar-brand fs-2 text-uppercase fw-bold"  routerLink="home">Start Framework
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item ps-2 pe-2">
+          <a class="nav-link fs-5 text-light fw-bold" routerLink="about" routerLinkActive="sec-bg-color text-white rounded-2">About</a>
+        </li>
+        <li class="nav-item ps-2 pe-2">
+          <a class="nav-link fs-5 text-light fw-bold" routerLink="portfolio" routerLinkActive="sec-bg-color text-white rounded-2">Portfolio</a>
+        </li>
+        <li class="nav-item ps-2 pe-2">
+          <a class="nav-link fs-5 text-light fw-bold" routerLink="contact" routerLinkActive="sec-bg-color text-white rounded-2">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

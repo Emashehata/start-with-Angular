@@ -1,0 +1,23 @@
+<div class="contact-section p-5 mt-5">
+  <div class="contact-header mt-5">
+    <h1 class="text-uppercase text-color text-center">portfolio component</h1>
+  </div>
+  <div class="secion-icon position-relative m-auto mt-3"><span><i class="text-color fa-solid fa-star"></i></span></div>
+</div>
+<div class="container">
+  <form action="" class="m-auto p-5 w-75">
+    <label #userName for="userName" class="text-sec-color form-label animate__animated animate__slideInUp d-none">User Name:</label>
+    <input (keydown)="animate($event,userName)" type="text" id="userName" class="form-control p-3 border-0 shadow-sm "  placeholder="userName" aria-describedby="userName">
+
+    <label #userAge for="userAge" class="text-sec-color form-label animate__animated animate__slideInUp d-none">User Age:</label>
+    <input (keydown)="animate($event,userAge)" type="number" id="userAge" class="form-control p-3 border-0 shadow-sm mt-3"  placeholder="userage" aria-describedby="userAge">
+
+    <label #userEmail for="userEmail" class="text-sec-color form-label animate__animated animate__slideInUp d-none">User Email:</label>
+    <input (keydown)="animate($event,userEmail)" type="email" id="userEmail" class="form-control p-3 border-0 shadow-sm mt-3"  placeholder="userEmail" aria-describedby="userEmail">
+
+    <label #userPassword for="userPassword" class="text-sec-color form-label animate__animated animate__slideInUp d-none">User Password:</label>
+    <input (keydown)="animate($event,userPassword)" type="password" id="userPassword" class="form-control p-3 border-0 shadow-sm mt-3"  placeholder="userPassword" aria-describedby="userPassword">
+    <button type="submit" class="btn sec-bg-color text-white mt-3">send Message</button>
+
+  </form>
+</div>

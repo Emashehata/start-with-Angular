@@ -1,0 +1,49 @@
+:root{
+  --main-color:#2C3E50;
+  --sec-color:#1ABC9C;
+}
+.main-bg-color
+{
+  background-color: var(--main-color);
+}
+.sec-bg-color{
+  background-color: var(--sec-color);
+}
+.text-color{
+  color: var(--main-color);
+}
+.text-sec-color{
+  color: var(--sec-color);
+}
+.secion-icon::after{
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  margin-left: 10px;
+  width: 100px;
+  height:2px;
+
+  background-color: white;
+  }
+  .secion-icon{
+    width: fit-content;
+  }
+  .secion-icon::before{
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  left: -100px;
+  width: 100px;
+  height:2px;
+  margin-left: -10px;
+
+  background-color: white;
+  }
+.inner-spaces
+{
+  padding-block: 90px !important;
+}
+.secion-icon::after
+,.secion-icon::before{
+  background-color: var(--main-color);
+}
