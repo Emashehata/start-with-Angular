@@ -8,5 +8,16 @@
         <p class="text-white mt-3">Graphic Artist - Web Designer - Illustrator</p>
         </div>
       </div>
-
+      <div class="row gy-4">
+        @for (product of products; track product.id) {
+          <div class="col-md-3">
+            <app-card [products]='product'></app-card>
+          </div>
+        }
+        </div>
+      <app-alert>
+        <p class="bg-danger">i hate angular</p>
+        <h1 class="bg-info-subtle">{{text}}</h1>
+      </app-alert>
+      <app-child (itemEvent)="text=$event" [dataFromParent]="userName"></app-child>
 </section>

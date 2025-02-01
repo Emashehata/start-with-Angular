@@ -1,4 +1,9 @@
 <section class="p-5 mt-5" >
+  <ul>
+    @for (f of friends; track $index) {
+      <li>{{f}}</li>
+    }
+  </ul>
   <div class="porto-header mt-5">
     <h1 class="text-uppercase text-color text-center">portfolio component</h1>
   </div>

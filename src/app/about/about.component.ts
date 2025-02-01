@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { MoviesService } from './../movies.service';
+import { DataService } from './../data.service';
+import { Component, ElementRef, inject, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Imovie } from '../imovie';
+import { Subscription } from 'rxjs';
+import { ChildComponent } from '../child/child.component';
 interface Iproduct{
   id:string;
   title:string;
@@ -11,12 +16,34 @@ interface Iproduct{
 }
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [ChildComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
 
-export class AboutComponent {
+export class AboutComponent implements OnInit,OnDestroy{
+
+  @ViewChild(ChildComponent) childElement!:ChildComponent;
+  showChild():void{
+      console.log(this.childElement);
+  }
+
+  test(element: HTMLHeadingElement):void{
+        element.classList.add('bg-info')
+  }
+  @ViewChild('para') myElement !:ElementRef;
+  showElement():void{
+    console.log(this.myElement.nativeElement);
+    this.myElement.nativeElement.classList.add('bg-danger')
+  }
+  @ViewChildren('ele') myElements !:QueryList<ElementRef>;
+
+  showElements():void{
+    console.log(this.myElements);
+    this.myElements.forEach((ref)=>{
+        ref.nativeElement.classList.add('bg-info')
+    })
+  }
   products:Iproduct[]=[
     {
         "id": "1",
@@ -240,5 +267,37 @@ export class AboutComponent {
         ],
         "onSale": false
     }
-  ]
+  ];
+
+  friends:string[];
+//   private readonly dataService=inject(DataService);
+  constructor(private dataService:DataService){
+    this.friends=this.dataService.friends;
+  }
+  private readonly moviesService=inject(MoviesService)
+  movies: Imovie[]=[];
+  imgPath:string='https://image.tmdb.org/t/p/w500';
+
+  submovie:Subscription=new Subscription();
+
+  getMoviesData():void{
+  this.submovie=  this.moviesService.getMovies().subscribe({
+      next:(res)=>{
+        console.log(res.results);
+        this.movies=res.results;
+      },
+      error:(err)=>{
+        console.log('error');
+
+      }
+    })
+  }
+  ngOnInit(): void {
+    this.getMoviesData();
+  }
+ ngOnDestroy(): void {
+    this.submovie.unsubscribe();
+ }
+
+
 }

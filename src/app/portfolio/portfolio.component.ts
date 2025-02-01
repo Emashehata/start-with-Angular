@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { DataService } from './../data.service';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio',
   imports: [],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css'
+  styleUrl: './portfolio.component.css',
 })
 export class PortfolioComponent {
   cards:string[]=[
@@ -40,4 +41,11 @@ export class PortfolioComponent {
     }
     return null;
   }
+   friends:string[];
+  private   dataService=inject(DataService);
+  constructor(){
+   this.friends=this.dataService.friends;
+   this.friends.pop();
+  }
+
 }

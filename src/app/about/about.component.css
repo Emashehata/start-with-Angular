@@ -2,3 +2,7 @@
 ,.secion-icon::before{
   background-color: white;
 }
+.slide{
+  width: 100%;
+  height: 100vh;
+}
